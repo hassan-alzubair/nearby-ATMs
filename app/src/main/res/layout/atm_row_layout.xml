@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/clickable_item"
+    android:clickable="true"
+    android:layoutDirection="ltr"
+    android:padding="10dp"
+    android:layout_height="75dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="50dp"
+        android:layout_centerVertical="true"
+        android:id="@+id/atm_icon"
+        app:civ_circle_background_color="@color/colorPrimary"
+        android:src="@mipmap/ic_atm"
+        app:tint="@color/colorPrimary"
+        android:layout_height="50dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/atm_name"
+        android:text="BOK ATM"
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:gravity="left"
+        android:layout_toRightOf="@id/atm_icon"
+        android:layout_marginLeft="10dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_below="@id/atm_name"
+        android:layout_width="match_parent"
+        android:id="@+id/atm_vicinity"
+        android:text="Khartoum"
+        android:gravity="left"
+        android:layout_toRightOf="@id/atm_icon"
+        android:layout_marginLeft="10dp"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:gravity="left"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:id="@+id/atm_distance"
+        android:text="1.3 KM from you"
+        android:layout_toRightOf="@id/atm_icon"
+        android:layout_below="@id/atm_vicinity"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

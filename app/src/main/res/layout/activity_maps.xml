@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark" />
+
+
+        <LinearLayout
+            android:id="@+id/linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_find_atms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="7dp"
+                android:background="@drawable/find_atms_background"
+                android:drawableLeft="@drawable/ic_location_searching_black_24dp"
+                android:drawablePadding="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Find ATMs"
+                android:textColor="#FFF" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="7dp"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.AppCompatSeekBar
+                    android:id="@+id/seekbar"
+                    style="@style/Widget.AppCompat.SeekBar.Discrete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="10"
+                    android:progress="8"
+                    android:thumbTint="@color/colorAccent"
+                    android:tickMarkTint="@color/colorPrimary" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_below="@id/seekbar"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="#CCC"
+                    android:id="@+id/txt_searching_in"
+                    android:layout_centerHorizontal="true"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/linear">
+
+            <fragment
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".FindATMs.MapsActivity" />
+
+        </FrameLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="#FFF"
+        android:orientation="vertical"
+        app:behavior_peekHeight="55dp"
+        app:layout_behavior="@string/bottom_sheet_behavior"
+        tools:ignore="MissingPrefix">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="Nearby ATMs:"
+            android:textColor="#000"
+            android:textStyle="bold" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>
